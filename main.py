@@ -8,7 +8,8 @@ triangolo = {
     'A1': {'E': 0, 'V': None, 'N': None, 'R': None}, #primo angolo adiacente
     'A2': {'E': 0, 'V': None, 'N': None, 'R': None}, #secondo angolo adiacente
     'H': {'E': 0, 'V': None}, #altezza
-    'AREA': {'V': None} #area
+    'AREA': {'V': None}, #area
+    'PERIMETRO': {'V': None} #perimetro
 }
 lati = ["AB", "BC", "AC"]
 constrlati = [None, None, None]
