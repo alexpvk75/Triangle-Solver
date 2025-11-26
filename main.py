@@ -32,6 +32,15 @@ subTriangolo = {
     'A2': {'V': None, 'S': None, 'R': None}, #secondo angolo
     'H': {'V': None}, #altezza
 }
+paradigmi = {
+    'P1': {
+        'STEPS': {
+            '0': ['', '#comment'],
+            '1': ['', '#comment']
+        },
+        'RESULT': {'AREA': None, 'PERIMETRO': None}
+    }
+}
 # Inizializzazione della base e della althezza
 while True:
     radice = input('\033[36m' + "Quale lato viene considerato come la base (AB/BC/AC): " + '\033[0m').strip().upper()
