@@ -1,1 +1,1 @@
-from .kondra import seno, coseno, tangente, cotangente, arcseno, arccoseno, arctan, arccot, rdqrt, grad_rad, rad_grad
+from .kondra import seno, coseno, tangente, cotangente, arcseno, arccoseno, arctan, arccot, rdqrt, grad_rad, rad_grad, arrotondare

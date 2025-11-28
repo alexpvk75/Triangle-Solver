@@ -1,17 +1,5 @@
 #KONDRA LIBRARY
 
-# Controllo di precisione universale
-
-def definisci_iterazioni(cifre):
-    n = 0
-    while True:
-        term = 1 / factoriale(2*n + 1)
-        if term < 10**(-cifre):
-            return n + 1
-        n += 1
-
-ITERAZIONI = definisci_iterazioni(5) #default
-
 def factoriale(n):
     if n < 0:
         raise ValueError("Factoriale non definito per numeri negativi")
@@ -20,14 +8,24 @@ def factoriale(n):
         risultato *= i
     return risultato
 
-def pi_greco():
-    return 16 * arctan(1/5) - 4 * arctan(1/239)
-
 def vabs(x):
-    return x if x >= 0 else x*(-1)
+    return x if x >= 0 else -x
 
+# ----- Precisione -----
 
-def seno(x): #serie di Maclaurin
+def definisci_iterazioni(cifre):
+    n = 0
+    while True:
+        termine = 1 / factoriale(2*n + 1)
+        if termine < 10**(-cifre):
+            return n + 1
+        n += 1
+
+ITERAZIONI = definisci_iterazioni(5)
+
+# ----- Trigonometria -----
+
+def seno(x):
     risultato = 0.0
     numeratore = x
     denominatore = 1
@@ -39,7 +37,7 @@ def seno(x): #serie di Maclaurin
         segno *= -1
     return risultato
 
-def coseno(x): #serie di Maclaurin
+def coseno(x):
     risultato = 0.0
     numeratore = 1.0
     denominatore = 1
@@ -51,34 +49,30 @@ def coseno(x): #serie di Maclaurin
         segno *= -1
     return risultato
 
+
 def tangente(x):
-    seno_x = seno(x)
-    coseno_x = coseno(x)
-    if coseno_x == 0:
+    s = seno(x)
+    c = coseno(x)
+    if c == 0:
         raise ValueError("La tangente non è definita per questo angolo.")
-    return seno_x / coseno_x
+    return s / c
 
 def cotangente(x):
-    seno_x = seno(x)
-    coseno_x = coseno(x)
-    if seno_x == 0:
+    s = seno(x)
+    c = coseno(x)
+    if s == 0:
         raise ValueError("La cotangente non è definita per questo angolo.")
-    return coseno_x / seno_x
+    return c / s
 
-def arcseno(x): #serie di Taylor
-    risultato = 0.0
-    numeratore = x
-    for n in range(ITERAZIONI):
-        coeff = 1.0
-        for k in range(1, n+1):
-            coeff *= (2*k - 1) / (2*k)
-        termine = coeff * numeratore / (2*n + 1)
-        risultato += termine
-        numeratore *= x * x
-    return risultato
-
-def arccoseno(x):
-    return (pi_greco() / 2) - arcseno(x)
+def rdqrt(a):
+    if a < 0:
+        raise ValueError("Impossibile calcolare la radice quadrata di un numero negativo.")
+    if a == 0:
+        return 0
+    x = a
+    for i in range(ITERAZIONI):
+        x = 0.5 * (x + a / x)
+    return x
 
 def arctan(x):
     oper = x if vabs(x) <= 1 else 1/x
@@ -90,12 +84,16 @@ def arctan(x):
         risultato += segno * potenza / (2*n + 1)
         potenza *= x2
         segno *= -1
+
     if vabs(x) <= 1:
         return risultato
     elif x > 0:
         return pi_greco()/2 - risultato
     else:
-        return (-1)*pi_greco()/2 - risultato
+        return -pi_greco()/2 - risultato
+
+def pi_greco():
+    return 16 * arctan(1/5) - 4 * arctan(1/239)
 
 def arccot(x):
     if x == 0:
@@ -104,19 +102,31 @@ def arccot(x):
         return arctan(1/x)
     return arctan(1/x) + pi_greco()
 
+def arcseno(x):
+    risultato = 0.0
+    numeratore = x
+    for n in range(ITERAZIONI):
+        coeff = 1.0
+        for k in range(1, n+1):
+            coeff *= (2*k - 1) / (2*k)
+        risultato += coeff * numeratore / (2*n + 1)
+        numeratore *= x * x
+    return risultato
 
-def rdqrt(a): # Metodo di Newton-Raphson
-    if a < 0:
-        raise ValueError("Impossibile calcolare la radice quadrata di un numero negativo.")
-    if a == 0:
-        return 0
-    x = a
-    for i in range(ITERAZIONI):
-        x = 0.5 * (x + a / x)
-    return x
+def arccoseno(x):
+    return pi_greco()/2 - arcseno(x)
 
-def grad_rad(x): # converte gradi in radiani
-    return (pi_greco()/180) * x
+# ----- Conversioni -----
 
-def rad_grad(x): # converte radiani in gradi
-    return (180/pi_greco()) * x
+def grad_rad(x):
+    return pi_greco()/180 * x
+
+def rad_grad(x):
+    return 180/pi_greco() * x
+
+def arrotondare(x, y):
+    factor = 10 ** y
+    arrotondato = int(x * factor + 0.5 if x >= 0 else x * factor - 0.5) / factor
+    if vabs(arrotondato) < 1e-14:
+        return 0.0
+    return arrotondato

@@ -1,8 +1,9 @@
 # Inizializzazione del dizionario per i dati del triangolo
 import math
 import bermuda.kondra as kondra
-kondra.ITERAZIONI = 10
-test = kondra.seno(kondra.grad_rad(90))
+cifre_const = 15
+kondra.ITERAZIONI = kondra.definisci_iterazioni(cifre_const)
+test = kondra.arrotondare(kondra.seno(kondra.grad_rad(45)), cifre_const)
 print(test)
 superTriangolo = {
     'L0': {'E': 0, 'V': None, 'N': None}, #base
