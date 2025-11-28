@@ -1,5 +1,9 @@
 # Inizializzazione del dizionario per i dati del triangolo
 import math
+import bermuda.kondra as kondra
+kondra.ITERAZIONI = 10
+test = kondra.seno(kondra.grad_rad(90))
+print(test)
 superTriangolo = {
     'L0': {'E': 0, 'V': None, 'N': None}, #base
     'L1': {'E': 0, 'V': None, 'N': None}, #primo lato adiacente
