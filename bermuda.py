@@ -4,6 +4,7 @@ import bermuda.kondra as kondra
 import bermuda.malev as malev
 cifre_const = 15
 kondra.ITERAZIONI = kondra.definisci_iterazioni(cifre_const)
+lang = 0 #0 - inglese, 1 - italiano, 2 - ucraino
 superTriangolo = {
     'L0': {'E': 0, 'V': None, 'N': None}, #base
     'L1': {'E': 0, 'V': None, 'N': None}, #primo lato adiacente
