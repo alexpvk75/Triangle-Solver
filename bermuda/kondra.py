@@ -1,4 +1,4 @@
-#KONDRA LIBRARY
+#KONDRA - LIBRERIA DI MATEMATICA
 
 def factoriale(n):
     if n < 0:

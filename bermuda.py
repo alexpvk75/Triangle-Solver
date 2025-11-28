@@ -1,5 +1,7 @@
 # Inizializzazione del dizionario per i dati del triangolo
+import bermuda.sheva as sheva
 import bermuda.kondra as kondra
+import bermuda.malev as malev
 cifre_const = 15
 kondra.ITERAZIONI = kondra.definisci_iterazioni(cifre_const)
 superTriangolo = {
@@ -40,7 +42,6 @@ paradigmi = {
             '0': ['', '#comment'],
             '1': ['', '#comment']
         },
-        'RESULT': {'AREA': None, 'PERIMETRO': None}
     }
 }
 # Inizializzazione della base e della althezza
