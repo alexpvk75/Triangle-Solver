@@ -1,5 +1,4 @@
 # Inizializzazione del dizionario per i dati del triangolo
-import math
 import bermuda.kondra as kondra
 cifre_const = 15
 kondra.ITERAZIONI = kondra.definisci_iterazioni(cifre_const)
@@ -81,7 +80,8 @@ for chiave in range(0,3):
 for chiave in range(0, 3):
     superTriangolo[f'A{chiave}']['V'] = convangolo(input(f"Inserisci il valore dell'angolo {superTriangolo[f'A{chiave}']['N']} (inserisci 'X' se sconosciuto): "))
     superTriangolo[f'A{chiave}']['E'] = 1 if superTriangolo[f'A{chiave}']['V'] != None else 0
-    superTriangolo[f'A{chiave}']['R'] = math.radians(float(superTriangolo[f'A{chiave}']['V'])) if superTriangolo[f'A{chiave}']['V'] != None else None
+    superTriangolo[f'A{chiave}']['R'] = kondra.grad_rad(float(superTriangolo[f'A{chiave}']['V'])) if superTriangolo[f'A{chiave}']['V'] != None else None
 
 if superTriangolo['H']['E'] == 1:
     superTriangolo['H']['V'] = convlato(input(f"Inserisci il valore di altezza H relativa a {superTriangolo['L0']['N']} (inserisci 'X' se sconosciuto): "))
+print(superTriangolo)
