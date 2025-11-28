@@ -47,7 +47,7 @@ paradigmi = {
 }
 # Inizializzazione della base e della althezza
 while True:
-    radice = input('\033[36m' + "Quale lato viene considerato come la base (AB/BC/AC): " + '\033[0m').strip().upper()
+    radice = input('\033[1;36m' + "Quale lato viene considerato come la base (AB/BC/AC): " + '\033[0m').strip().upper()
     if radice in primeTriangolo['ordine_lati']:
         break
     print('\033[91m' + "Input non valido! Inserisci AB, BC o AC" + '\033[0m')
