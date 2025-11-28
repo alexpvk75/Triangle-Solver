@@ -3,8 +3,6 @@ import math
 import bermuda.kondra as kondra
 cifre_const = 15
 kondra.ITERAZIONI = kondra.definisci_iterazioni(cifre_const)
-test = kondra.arrotondare(kondra.seno(kondra.grad_rad(45)), cifre_const)
-print(test)
 superTriangolo = {
     'L0': {'E': 0, 'V': None, 'N': None}, #base
     'L1': {'E': 0, 'V': None, 'N': None}, #primo lato adiacente
