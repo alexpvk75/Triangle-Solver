@@ -29,13 +29,9 @@ primeTriangolo = {
     }
 }
 subTriangolo = {
-    'L0': {'V': None, 'S': None}, #base
-    'L1': {'V': None, 'S': None}, #primo lato
-    'L2': {'V': None, 'S': None}, #secondo lato
-    'A0': {'V': None, 'S': None, 'R': None}, #angolo opposto alla base
-    'A1': {'V': None, 'S': None, 'R': None}, #primo angolo
-    'A2': {'V': None, 'S': None, 'R': None}, #secondo angolo
-    'H': {'V': None}, #altezza
+    'P1': superTriangolo['L0']['E']*superTriangolo['H']['E'],
+    'P2': superTriangolo['L0']['E']*superTriangolo['L1']['E']*superTriangolo['L2']['E'],
+    'P3': superTriangolo['L1']['E']*superTriangolo['L2']['E']*superTriangolo['A0']['E'] or superTriangolo['L0']['E']*superTriangolo['L2']['E']*superTriangolo['A1']['E'] or superTriangolo['L0']['E']*superTriangolo['L1']['E']*superTriangolo['A2']['E']
 }
 paradigmi = {
     'P1': {
