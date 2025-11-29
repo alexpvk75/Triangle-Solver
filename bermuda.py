@@ -1,7 +1,7 @@
 # Inizializzazione del dizionario per i dati del triangolo
-import bermuda.sheva as sheva
-import bermuda.kondra as kondra
-import bermuda.malev as malev
+import moduli.sheva as sheva
+import moduli.kondra as kondra
+import moduli.malev as malev
 cifre_const = 15
 kondra.ITERAZIONI = kondra.definisci_iterazioni(cifre_const)
 lang = 0 #0 - inglese, 1 - italiano, 2 - ucraino
