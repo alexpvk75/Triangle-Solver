@@ -1,7 +1,8 @@
-#triangolo = 0 - segnali di presenza dati
+#triangolo: 0 - segnali di presenza dati
 #           1 - nomi lati e angoli
 #           2 - valori lati, angoli e altezza
 #           3 - area e perimetro
+# H, L0, L1, L2, A0, A1, A2
 triangolo = [[False, False, False, False, False, False, False],
     [None, None, None, None, None, None, None],
     [0, 0, 0, 0, 0, 0, 0],
@@ -9,15 +10,15 @@ triangolo = [[False, False, False, False, False, False, False],
 while True:
     base_input = input("Quale lato viene considerato come la base (AB/BC/AC): ").strip().upper()
     if base_input in ["AB", "BC", "AC"]:
-        triangolo[1][0] = base_input
+        triangolo[1][1] = base_input
         break
     print("Input non valido! Inserisci AB, BC o AC")
-triangolo[1][1] = "BC" if triangolo[1][0] == "AB" else "AC" if triangolo[1][0] == "BC" else "AB"
-triangolo[1][2] = "AC" if triangolo[1][0] == "AB" else "AB" if triangolo[1][0] == "BC" else "BC"
-for i in range(0, 3):
+triangolo[1][2] = "BC" if triangolo[1][0] == "AB" else "AC" if triangolo[1][0] == "BC" else "AB"
+triangolo[1][3] = "AC" if triangolo[1][0] == "AB" else "AB" if triangolo[1][0] == "BC" else "BC"
+for i in range(1, 4):
     triangolo[1][i+3] = ["C", "A", "B"][["AB", "BC", "AC"].index(triangolo[1][i])]
 # input dei dati
-for i in range(0, 3):
+for i in range(1, 4):
     while True:
         insert = input(f"Inserisci il valore del lato {triangolo[1][i]}: ").strip().upper()
         if insert <= 0:
@@ -26,7 +27,7 @@ for i in range(0, 3):
             triangolo[2][i] = float(insert) if insert != 'X' else 0
             triangolo[0][i] = True if insert != 'X' else False
             break
-for i in range(3, 6):
+for i in range(4, 7):
     while True:
         insert = input(f"Inserisci il valore del angolo {triangolo[1][i]}: ")
         if not (0< insert < 180):
@@ -40,6 +41,6 @@ while True:
     if insert < 0:
         print("Il valore non può essere minore a 0")
     else:
-        triangolo[2][6] = float(insert) if insert != 'X' else 0
-        triangolo[0][6] = True if insert != 'X' else False
+        triangolo[2][0] = float(insert) if insert != 'X' else 0
+        triangolo[0][0] = True if insert != 'X' else False
         break
