@@ -7,7 +7,7 @@
 triangolo = [[False, False, False, False, False, False, False],
     [None, None, None, None, None, None, None],
     [0, 0, 0, 0, 0, 0, 0],
-    [False, 0, 0]
+    [False, 0, 0],
     [0, 0]]
 while True:
     base_input = input("Quale lato viene considerato come la base (AB/BC/AC): ").strip().upper()
