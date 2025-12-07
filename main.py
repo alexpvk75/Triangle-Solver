@@ -27,14 +27,14 @@ for i in range(1, 4):
             triangolo[2][i] = float(insert) if insert != 'X' else 0
             triangolo[0][i] = True if insert != 'X' else False
             break
-for i in range(4, 7):
+for i in range(1, 4):
     while True:
         insert = input(f"Inserisci il valore del angolo {triangolo[1][i]}: ")
         if not (0< insert < 180):
             print("Il valore non può essere minore a 0 o maggiore a 180")
         else:
-            triangolo[2][i] = float(insert) if insert != 'X' else 0
-            triangolo[0][i] = True if insert != 'X' else False
+            triangolo[2][i+3] = float(insert) if insert != 'X' else 0
+            triangolo[0][i+3] = True if insert != 'X' else False
             break
 while True:
     insert = input(f"Inserisci il valore dell'altezza: ")
