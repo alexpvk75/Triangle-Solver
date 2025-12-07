@@ -1,12 +1,14 @@
 #triangolo: 0 - segnali di presenza dati
 #           1 - nomi lati e angoli
 #           2 - valori lati, angoli e altezza
-#           3 - area e perimetro
+#           3 - segnali: LEGAL, PARADIGM, BEACON
+#           4 - area e perimetro
 # H, L0, L1, L2, A0, A1, A2
 triangolo = [[False, False, False, False, False, False, False],
     [None, None, None, None, None, None, None],
     [0, 0, 0, 0, 0, 0, 0],
-    [False, 0, 0]]
+    [False, 0, 0]
+    [0, 0]]
 while True:
     base_input = input("Quale lato viene considerato come la base (AB/BC/AC): ").strip().upper()
     if base_input in ["AB", "BC", "AC"]:
