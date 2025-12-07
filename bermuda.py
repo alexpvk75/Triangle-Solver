@@ -1,4 +1,4 @@
-def rotate(O, S): # (X, SHIFT -> T[3][2])
+def rotate(O, S): # (OBJECT -> eg????[L1, L2, A0], SHIFT -> T[3][2])
     if O == 0:
         return S
     elif O == 1:
