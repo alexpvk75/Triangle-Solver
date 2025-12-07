@@ -1,10 +1,10 @@
-def rotate(V, B):
+def rotate(S, O):
     if O == 0:
-        return V
+        return S
     elif O == 1:
-        return int(((V%2)*(V+1)+(1-(V%2))*(1-(V/2))))
+        return int(((S%2)*(S+1)+(1-(S%2))*(1-(S/2))))
     else: 
-        return int((1-(V%2))*(2-(V/2)))
+        return int((1-(S%2))*(2-(S/2)))
 
 def inequality_full(T):
     if bool(T[0][1]*T[0][2]*T[0][3]):
@@ -35,4 +35,5 @@ def inspect(T):
             T[3][0] = True
             defined = True
     elif (not defined) and (paradigm3_check(T)):
+        #
         print("Ciao") #will be implemented later

@@ -1,7 +1,7 @@
 #triangolo: 0 - segnali di presenza dati
 #           1 - nomi lati e angoli
 #           2 - valori lati, angoli e altezza
-#           3 - segnali: LEGAL, PARADIGM, BEACON
+#           3 - segnali: LEGAL, PARADIGM, SHIFT
 #           4 - area e perimetro
 # H, L0, L1, L2, A0, A1, A2
 triangolo = [[False, False, False, False, False, False, False],
