@@ -1,4 +1,3 @@
-# Branch: Alex Pavlyk
 # 0 - valori lati (AB, BC, AC)
 # 1 - valori angoli (C, A, B)
 # 2 - area, perimetro
