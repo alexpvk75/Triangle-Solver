@@ -21,7 +21,6 @@ for i in range(3):
             continue
         L[i] = valore
         break
-
 def valido(L):
     return (L[0] + L[1] > L[2]) and (L[1] + L[2] > L[0]) and (L[0] + L[2] > L[1])
 
