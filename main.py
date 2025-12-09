@@ -2,6 +2,7 @@
 # 0 - valori lati (AB, BC, AC)
 # 1 - valori angoli (C, A, B)
 # 2 - area, perimetro
+import PIL
 import math
 L = [0, 0, 0] # Lati del triangolo
 A = [0, 0, 0] # Angoli del triangolo
