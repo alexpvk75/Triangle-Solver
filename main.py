@@ -39,7 +39,7 @@ else:
     text = {
         '.txt': [
             'Soluzione:\n',
-            f'Lati: AB = {L[0]}, BC = {L[1]}, AC = {L[2]}\n',
+            f'Lati: AB = {fmt(L[0])}, BC = {fmt(L[1])}, AC = {fmt(L[2])}\n',
             f'Perimetro: AB + BC + AC = {fmt(perimetro)}\n',
             f'Area: sqrt(p(p-AB)(p-BC)(p-AC))\n',
             f'p = (AB+BC+AC)/2 = {fmt(semiper)}\n',
@@ -47,8 +47,8 @@ else:
             f' = {fmt(area)}\n'],
         '.md': [
             '## Soluzione:\n',
-            f'$$Lati: AB = {L[0]}, BC = {L[1]}, AC = {L[2]}$$\n',
-            f'$$Perimetro: AB + BC + AC = {perimetro}$$\n',
+            f'$$Lati: AB = {fmt(L[0])}, BC = {fmt(L[1])}, AC = {fmt(L[2])}$$\n',
+            f'$$Perimetro: AB + BC + AC = {fmt(perimetro)}$$\n',
             f'$$Area: \\sqrt{{p(p-AB)(p-BC)(p-AC)}}$$\n',
             f'$$p = \\frac{{AB+BC+AC}}{{2}} = {fmt(semiper)}$$\n',
             f'$$Area: \\sqrt{{{fmt(semiper)}({fmt(semiper)}-{L[0]})({fmt(semiper)}-{L[1]})({fmt(semiper)}-{L[2]})}}'
