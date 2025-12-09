@@ -1,9 +1,6 @@
-# 0 - valori lati (AB, BC, AC)
-# 1 - valori angoli (C, A, B)
-# 2 - area, perimetro
 import math
-L = [0, 0, 0] # Lati del triangolo
-A = [0, 0, 0] # Angoli del triangolo
+L = [0, 0, 0] # Lati del triangolo (AB, BC, AC)
+A = [0, 0, 0] # Angoli del triangolo (C, A, B)
 perimetro = 0
 area = 0
 for i in range(3):
