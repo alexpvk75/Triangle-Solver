@@ -31,9 +31,7 @@ else:
     area = int(erona) if erona % 1 == 0 else float(erona)
     A = [0, 0, 0]     
     for x in range(3):
-        y = int(((x%2)*(x+1)+(1-(x%2))*(1-(x/2))))
-        z = int((1-(x%2))*(2-(x/2)))
-        cos = (L[y]**2 + L[z]**2 - L[x]**2) / (2 * L[y] * L[z])
+        cos = (L[(x+1)%3]**2 + L[(x+2)%3]**2 - L[x]**2) / (2 * L[(x+1)%3] * L[(x+2)%3])
         angolo = math.degrees(math.acos(cos))
         A[x] = int(angolo) if angolo % 1 == 0 else float(angolo)
     print(f"\nRISULTATI\nArea: {area}\nPerimetro: {perimetro}\nAngoli: C={A[0]}, A={A[1]}, B={A[2]}")
