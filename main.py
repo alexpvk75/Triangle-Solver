@@ -1,3 +1,4 @@
+# alternative branch
 import bermuda
 #triangolo: 0 - segnali di presenza dati
 #           1 - nomi lati e angoli
