@@ -26,10 +26,10 @@ if(not controllare(L)):
     print("I valori inseriti non possono formare un triangolo valido.")
 else:
     perimetro = (L[0] + L[1] + L[2])
-    perimetro = int(perimetro) if perimetro % 1 == 0 else round(float(perimetro), 2)
+    perimetro = int(perimetro) if perimetro % 1 == 0 else float(perimetro)
     semiper = perimetro / 2
     erona = math.sqrt(semiper * (semiper - L[0]) * (semiper - L[1]) * (semiper - L[2]))
-    area = int(erona) if erona % 1 == 0 else round(float(erona), 2)
+    area = int(erona) if erona % 1 == 0 else float(erona)
     A = [0, 0, 0]
     def carnot(x, L):
         y = int(((x%2)*(x+1)+(1-(x%2))*(1-(x/2))))
