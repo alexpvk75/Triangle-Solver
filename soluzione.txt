@@ -1,0 +1,9 @@
+Soluzione:
+Lati: AB = 3, BC = 4, AC = 5
+Perimetro: AB + BC + AC = 12
+Area: sqrt(p(p-AB)(p-BC)(p-AC))
+p = (AB+BC+AC)/2 = 6
+Area: sqrt(6(6-3)(6-4)(6-5)) = 6
+C = arccos((BC^2 + AC^2 - AB^2) / (2 * BC * AC)) = 36.86989764584401
+A = arccos((AB^2 + AC^2 - BC^2) / (2 * AB * AC)) = 53.13010235415599
+B = arccos((AB^2 + BC^2 - AC^2) / (2 * AB * BC)) = 90
