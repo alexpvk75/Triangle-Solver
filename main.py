@@ -23,10 +23,10 @@ for i in range(3):
         L[i] = valore
         break
 
-def controllare(L):
+def valido(L):
     return (L[0] + L[1] > L[2]) and (L[1] + L[2] > L[0]) and (L[0] + L[2] > L[1])
 
-if(not controllare(L)):
+if(not valido(L)):
     print("I valori inseriti non possono formare un triangolo valido.")
 else:
     perimetro = (L[0] + L[1] + L[2])
