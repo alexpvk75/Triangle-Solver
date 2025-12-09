@@ -1,9 +1,0 @@
-Soluzione:
-Lati: AB = 7, BC = 8, AC = 5
-Perimetro: AB + BC + AC = 20
-Area: sqrt(p(p-AB)(p-BC)(p-AC))
-p = (AB+BC+AC)/2 = 10
-Area: sqrt(10(10-7.0)(10-8.0)(10-5.0)) = 17.321
-C = arccos((BC^2 + AC^2 - AB^2) / (2 * BC * AC)) = arccos((8.0^2 + 5.0^2 - 7.0^2) / (2 * 8.0 * 5.0)) = 60
-A = arccos((AC^2 + AB^2 - BC^2) / (2 * AC * AB)) = arccos((5.0^2 + 7.0^2 - 8.0^2) / (2 * 5.0 * 7.0)) = 81.787
-B = arccos((AB^2 + BC^2 - AC^2) / (2 * AB * BC)) = arccos((7.0^2 + 8.0^2 - 5.0^2) / (2 * 7.0 * 8.0)) = 38.213
