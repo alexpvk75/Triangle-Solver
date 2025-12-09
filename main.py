@@ -32,16 +32,11 @@ else:
     semiper = perimetro / 2
     erona = math.sqrt(semiper * (semiper - L[0]) * (semiper - L[1]) * (semiper - L[2]))
     area = int(erona) if erona % 1 == 0 else float(erona)
-    A = [0, 0, 0]
-    def carnot(x, L):
+    A = [0, 0, 0]     
+    for x in range(3):
         y = int(((x%2)*(x+1)+(1-(x%2))*(1-(x/2))))
         z = int((1-(x%2))*(2-(x/2)))
         cos = (L[y]**2 + L[z]**2 - L[x]**2) / (2 * L[y] * L[z])
         angolo = math.degrees(math.acos(cos))
-        if angolo % 1 == 0:
-            return int(angolo)
-        else:
-            return float(angolo)      
-    for x in range(3):
-        A[x] = carnot(x, L)
+        A[x] = int(angolo) if angolo % 1 == 0 else float(angolo)
     print(f"\nRISULTATI\nArea: {area}\nPerimetro: {perimetro}\nAngoli: C={A[0]}, A={A[1]}, B={A[2]}")
