@@ -1,78 +1,39 @@
-import bermuda
-#triangolo: 0 - segnali di presenza dati
-#           1 - nomi lati e angoli
-#           2 - valori lati, angoli e altezza
-#           3 - segnali: LEGAL, PARADIGM(AREA), SHIFT, RECOVERY
-#           4 - area e perimetro
-# H, L0, L1, L2, A0, A1, A2
-triangolo = [[False, False, False, False, False, False, False],
-    [None, None, None, None, None, None, None],
-    [0, 0, 0, 0, 0, 0, 0],
-    [False, 0, 0],
-    [0, 0]]
-while True:
-    base_input = input("Quale lato viene considerato come la base (AB/BC/AC): ").strip().upper()
-    if base_input in ["AB", "BC", "AC"]:
-        triangolo[1][1] = base_input
-        break
-    print("Input non valido! Inserisci AB, BC o AC")
-triangolo[1][2] = "BC" if triangolo[1][1] == "AB" else "AC" if triangolo[1][1] == "BC" else "AB"
-triangolo[1][3] = "AC" if triangolo[1][1] == "AB" else "AB" if triangolo[1][1] == "BC" else "BC"
-for i in range(1, 4):
-    triangolo[1][i+3] = ["C", "A", "B"][["AB", "BC", "AC"].index(triangolo[1][i])]
-# input dei dati
-for i in range(1, 4):
+# 0 - valori lati (AB, BC, AC)
+# 1 - valori angoli (C, A, B)
+# 2 - area, perimetro
+import math
+triangolo = [[0, 0, 0],
+             [0, 0, 0],
+             [0, 0]]
+for i in range(0, 3):
     while True:
-        insert = input(f"Inserisci il valore del lato {triangolo[1][i]}: ").strip().upper()
-        if insert == 'X':
-            triangolo[2][i] = 0
-            triangolo[0][i] = False
-            break
+        insert = input(f"Inserisci il valore del lato {['AB', "BC", "AC"][i]}: ").strip().upper()
         try:
             valore = float(insert)
         except ValueError:
-            print("Inserisci un numero valido o 'X' se sconosciuto")
+            print("Inserisci un numero valido")
             continue
         if float(insert) <= 0:
             print("Il valore non può essere minore o uguale a 0")
             continue
-        triangolo[2][i] = float(insert)
-        triangolo[0][i] = True
+        triangolo[0][i] = float(insert)
         break
-for i in range(1, 4):
-    while True:
-        insert = input(f"Inserisci il valore del angolo {triangolo[1][i+3]}: ").strip().upper()
-        if insert == 'X':
-            triangolo[2][i+3] = 0
-            triangolo[0][i+3] = False
-            break
-        try:
-            valore = float(insert)
-        except ValueError:
-            print("Inserisci un numero valido o 'X' se sconosciuto")
-            continue
-        if not (0<valore<180):
-            print("Il valore non può essere minore a 0 o maggiore a 180")
-            continue
-        triangolo[2][i+3] = float(insert)
-        triangolo[0][i+3] = True
-        break
-while True:
-    insert = input("Inserisci il valore dell'altezza: ").strip().upper()
-    if insert == 'X':
-        triangolo[2][0] = 0
-        triangolo[0][0] = False
-        break
-    try:
-        valore = float(insert)
-    except ValueError:
-        print("Inserisci un numero valido o 'X' se sconosciuto")
-        continue
-    if valore <= 0:
-        print("Il valore non può essere minore o uguale a 0")
-        continue
-    triangolo[2][0] = float(insert)
-    triangolo[0][0] = True
-    break
-bermuda.inspect(triangolo)
-print(triangolo[3][1])
+
+def controllare(L):
+    return (L[0] + L[1] > L[2]) and (L[1] + L[2] > L[0]) and (L[0] + L[2] > L[1])
+
+if(not controllare(triangolo[0])):
+    print("I valori inseriti non possono formare un triangolo valido.")
+else:
+    L = [triangolo[0][0], triangolo[0][1], triangolo[0][2]]
+    semiper = (L[0] + L[1] + L[2]) / 2
+    area = math.sqrt(semiper * (semiper - L[0]) * (semiper - L[1]) * (semiper - L[2]))
+    triangolo[2][0] = area
+    triangolo[2][1] = semiper * 2
+    A = [0, 0, 0]
+    A[0] = math.acos((L[1]**2+L[2]**2-L[0]**2)/(2*L[1]*L[2])) * (180/math.pi)
+    A[1] = math.acos((L[0]**2+L[2]**2-L[1]**2)/(2*L[0]*L[2])) * (180/math.pi)
+    A[2] = 180 - A[0] - A[1]
+    for i in range(0, 3):
+        triangolo[1][i] = A[i]
+    print(f"Area: {triangolo[2][0]}\nPerimetro: {triangolo[2][1]}\nAngoli: C={triangolo[1][0]}, A={triangolo[1][1]}, AB={triangolo[1][2]}")
