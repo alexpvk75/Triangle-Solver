@@ -27,8 +27,8 @@ else:
     perimetro = (L[0] + L[1] + L[2])
     perimetro = int(perimetro) if perimetro % 1 == 0 else float(perimetro)
     semiper = perimetro / 2
-    erona = math.sqrt(semiper * (semiper - L[0]) * (semiper - L[1]) * (semiper - L[2]))
-    area = int(erona) if erona % 1 == 0 else float(erona)
+    area = math.sqrt(semiper * (semiper - L[0]) * (semiper - L[1]) * (semiper - L[2]))
+    area = int(area) if area % 1 == 0 else float(area)
     A = [0, 0, 0]     
     for x in range(3):
         cos = (L[(x+1)%3]**2 + L[(x+2)%3]**2 - L[x]**2) / (2 * L[(x+1)%3] * L[(x+2)%3])
