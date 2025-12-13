@@ -79,7 +79,6 @@ else:
     # Fase Elaborazione
     perimetro = (L[0] + L[1] + L[2])
     area = calc_area(perimetro, L)
-    A = [0, 0, 0]
     for x in range(3):
         A[x] = calc_angolo(x, L)
     # Fase Output
