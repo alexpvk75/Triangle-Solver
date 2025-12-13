@@ -1,2 +1,1 @@
-# BermudaTriangolo
-Risolutore Universale dei Triangoli
+# Risolutore Universale dei Triangoli
